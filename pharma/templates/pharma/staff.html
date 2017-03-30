@@ -1,0 +1,51 @@
+{% extends 'pharma/base_template.html' %}
+
+{%  block body %}
+
+<div class="container-fluid">
+</br></br></br></br>
+<div class="row">
+<div class="col-md-10 offset-md-1">
+<div class="jumbotron-fluid">
+
+<div class="jumbotron" style="background-color:#F5F5F5">
+  <div class="container">
+  <div class="btn-group" style="float:right;" role="group" aria-label="Basic example">
+  <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{% url 'pharma:staff' %}">Andheri</a></button>
+  <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{% url 'pharma:dispstaff' 'Powai' %}">Powai</a></button>
+  <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{% url 'pharma:dispstaff' 'Kandivali' %}">Kandivali</a></button>
+</div>
+    <h1 class="display-4">Staff</h1></br>
+	<table class="table table-hover">
+  <thead class="thead-default">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+        {% for s in staffs %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ s.name}}</td>
+      <td>{{ s.age }}</td>
+      <td>{{ s.loc }}</td>
+    </tr>
+  </tbody>
+        {% endfor %}
+</table>
+
+  </div>
+</div>
+</div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>.
+</div>
+</div>
+
+
+
+</div>
+
+{% endblock %}

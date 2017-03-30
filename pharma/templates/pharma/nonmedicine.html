@@ -1,0 +1,55 @@
+{% extends 'pharma/base_template.html' %}
+
+{%  block body %}
+
+<div class="container-fluid">
+</br></br></br></br>
+<div class="row">
+<div class="col-md-10 offset-md-1">
+<div class="jumbotron-fluid">
+
+<div class="jumbotron" style="background-color:#F5F5F5">
+  <div class="container">
+  <div class="btn-group" style="float:right;" role="group" aria-label="Basic example">
+    <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{% url 'pharma:nonmedicine' %}">Andheri</a></button>
+    <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{% url 'pharma:dispnonmeds' 'Powai' %}">Powai</a></button>
+    <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{%  url 'pharma:dispnonmeds' 'Kandivali' %}">Kandivali</a></button>
+</div>
+    <h1 class="display-4">{{ site }} Non Medicine</h1></br>
+	<table class="table table-hover">
+  <thead class="thead-default">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Manufacture</th>
+      <th>Expiry</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+        {% for nm in nonmedicines %}
+  <tbody>
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{ nm.name}}</td>
+      <td>{{ nm.manu_date }}</td>
+      <td>{{ nm.exp_date }}</td>
+      <td>{{ nm.price }}</td>
+      <td>{{ nm.quantity }}</td>
+    </tr>
+  </tbody>
+        {% endfor %}
+</table>
+
+  </div>
+</div>
+</div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>.
+</div>
+</div>
+
+
+
+</div>
+
+{% endblock %}

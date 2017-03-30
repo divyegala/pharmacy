@@ -1,0 +1,53 @@
+{% extends 'pharma/base_template.html' %}
+
+{%  block body %}
+
+<div class="container-fluid">
+</br></br></br></br>
+<div class="row">
+<div class="col-md-10 offset-md-1">
+<div class="jumbotron-fluid">
+
+<div class="jumbotron" style="background-color:#F5F5F5">
+  <div class="container">
+  <div class="btn-group" style="float:right;" role="group" aria-label="Basic example">
+  <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{% url 'pharma:doctor' %}">Andheri</a></button>
+  <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{% url 'pharma:dispdocs' 'Powai' %}">Powai</a></button>
+  <button type="button" style="color:black;"class="btn btn-outline-secondary"><a href="{% url 'pharma:dispdocs' 'Kandivali' %}">Kandivali</a></button>
+</div>
+    <h1 class="display-4">{{ site }} Doctors</h1></br>
+	<table class="table table-hover">
+  <thead class="thead-default">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Qualification</th>
+      <th>Reg No.</th>
+        <th>Pt Ref</th>
+    </tr>
+  </thead>
+        {% for d in doctors %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ d.name}}</td>
+      <td>{{ d.qualification }}</td>
+      <td>{{ d.reg_no }}</td>
+        <td>{{ d.pt_ref }}</td>
+    </tr>
+  </tbody>
+        {% endfor %}
+</table>
+
+  </div>
+</div>
+</div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>.
+</div>
+</div>
+
+
+
+</div>
+
+{% endblock %}
